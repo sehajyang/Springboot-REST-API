@@ -11,3 +11,11 @@
 * 스프링 시큐리티 OAuth2
 
 테스트 주도 개발(TDD)로 진행합니다.
+
+<hr>
+
+## REST API
+
+REST API라고 부를 수 있으려면 
+
+Self-Descriptive Message와 HATEOAS(Hypermedia as the engine of application state)를 만족해야 한다.
