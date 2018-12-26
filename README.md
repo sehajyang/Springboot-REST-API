@@ -19,3 +19,15 @@
 REST API라고 부를 수 있으려면 
 
 Self-Descriptive Message와 HATEOAS(Hypermedia as the engine of application state)를 만족해야 한다.
+* Self-Descriptive 해결법
+    * 미디어 타입을 정의하고, IANA에 등록하고 그 미디어타입을 리소스 리턴할 때 Content-Type으로 사용한다
+    * profile 링크 헤더를 추가한다 
+        * 브라우저들이 아직 스팩지원을 잘 안한다
+        * 대안으로 HAL의 링크데이터에 profile링크 추가
+
+* HATEOAS 해결방법
+    * 데이터에 링크 제공 => HAL 사용
+    * 링크 헤더나 Location을 제공
+
+* HAL 이란
+Hypertext Application Language
