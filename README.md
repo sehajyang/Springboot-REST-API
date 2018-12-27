@@ -31,3 +31,22 @@ Self-Descriptive Message와 HATEOAS(Hypermedia as the engine of application stat
 
 * HAL 이란
 Hypertext Application Language
+
+## 스프링부트 프로젝트
+
+추가한 의존성 
+
+* Web
+* JPA
+* HATEOAS
+* REST Docs
+* H2
+* PostgrsSQL
+* Lombok
+
+스프링부트 핵심 원리
+* 의존성 설정
+* 자동설정(@EnableAutoConfiguration)
+* 내장 웹 서버
+* 독립적으로 실행가능한 JAR
+
