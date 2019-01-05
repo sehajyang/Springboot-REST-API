@@ -18,15 +18,17 @@ public class EventTest {
     @Test
     public void javaBean() {
         //Given
-        Event event = new Event();
         String name = "Event";
-        event.setDescription("Spring");
+        String description = "Spring";
+        
         //When
+        Event event = new Event();
+        event.setName(name);
         event.setDescription(description);
         
         //Then
         assertThat(event.getName()).isEqualTo(name);
-        asseetThat(event.getDescription()).isEqualTo(descripton);
+        assertThat(event.getDescription()).isEqualTo(description);
     }
 
 }
