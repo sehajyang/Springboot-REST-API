@@ -2,10 +2,18 @@ package me.sehajyang.io.events;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Builder
+@Builder @AllArgsConstructor @NoArgsConstructor
+@Getter @Setter @EqualsAndHashCode(of = "id")
 public class Event {
+    
+    private Integer id;
     private String name;
     private String description;
     private LocalDateTime beginEnrollmentDateTime;

@@ -44,9 +44,13 @@ Hypertext Application Language
 * PostgrsSQL
 * Lombok
 
-스프링부트 핵심 원리
-* 의존성 설정
-* 자동설정(@EnableAutoConfiguration)
-* 내장 웹 서버
-* 독립적으로 실행가능한 JAR
+스프링부트 핵심 원리  
+* 의존성 설정  
+* 자동설정(@EnableAutoConfiguration)  
+* 내장 웹 서버  
+* 독립적으로 실행가능한 JAR  
+
+Event 생성 API 구현 : Event 도메인 구현
+
+
 

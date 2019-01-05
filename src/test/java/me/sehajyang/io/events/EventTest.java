@@ -8,9 +8,25 @@ public class EventTest {
     
     @Test
     public void builder() {
-        Event event = Event.builder().build();
+        Event event = Event.builder()
+                .name("Spring REST API")
+                .description("REST API with spring")
+                .build();
         assertThat(event).isNotNull();
     }
     
+    @Test
+    public void javaBean() {
+        //Given
+        Event event = new Event();
+        String name = "Event";
+        event.setDescription("Spring");
+        //When
+        event.setDescription(description);
+        
+        //Then
+        assertThat(event.getName()).isEqualTo(name);
+        asseetThat(event.getDescription()).isEqualTo(descripton);
+    }
 
 }
