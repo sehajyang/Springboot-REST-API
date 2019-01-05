@@ -11,6 +11,7 @@ import lombok.Setter;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter @EqualsAndHashCode(of = "id") // 연관관계에 해당되는 것은 추가하면 안됨(상호 참조때문)
+//@EqualsAndHashCode(callSuper=true)는 모든 필드 대상으로 만듦
 public class Event {
     //엔티티간의 상호 참조하는 관계가 되면 @EqualsAndHashCode로 구현한 코드 안에서 스택오버플로우가 발생할 수 있음
     
