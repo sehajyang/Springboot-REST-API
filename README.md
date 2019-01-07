@@ -59,5 +59,6 @@ Hypertext Application Language
         * @EqualsAndHashCode로 구현한 코드 안에서 스택오버플로우가 발생할 수 있음
         * @Data 가 포함하는 어노테이션엔 EqualsAndHashCode 가 있는데 모든 엔티티를 다 써서 구현하기 때문에 순환참조 문제로 스택오버플로우 발생할 수 있음. 따라서 엔티티 위에 @Data는 사용하지 않는게 좋음
 
-    2-2. 비즈니스 로직
+    2-2. 
     
+
