@@ -23,9 +23,8 @@ public class EventController {
     }
     
     @PostMapping
-     public ResponseEntity createEvent(@RequestBody Event event) {
+     public ResponseEntity createEvent(@RequestBody EventDto eventDto) {
         Event newEvent = this.eventRepository.save(event);
-        
           URI createdUri = linkTo(EventController.class).slash(newEvent.getId()).toUri(); 
            //hateos가 제공, Location URL만들기
           event.setId(10);

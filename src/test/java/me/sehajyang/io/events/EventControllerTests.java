@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.time.LocalDateTime;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -40,6 +41,7 @@ public class EventControllerTests {
     public void createEvent() throws Exception {
         //요청 생성
         Event event = Event.builder()
+                .id(100)
                 .name("Spring")
                 .description("Rest Api Dev")
                 .beginEnrollmentDateTime(LocalDateTime.of(2019, 01, 04, 14, 20))
@@ -50,6 +52,8 @@ public class EventControllerTests {
                 .maxPrice(200)
                 .limitOfEnrollment(100)
                 .location("Seoul, Korea")
+                .free(true)
+                .offline(false)
                 .build();
         
         event.setId(10);
@@ -63,7 +67,10 @@ public class EventControllerTests {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("id").exists())
                 .andExpect(header().exists(HttpHeaders.LOCATION))
-                .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaTypes.HAL_JSON_UTF8_VALUE));
+                .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaTypes.HAL_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("id").value(Matchers.not(100)))
+                .andExpect(jsonPath("free").value(Matchers.not(true)));
+    
     }
 
 }
