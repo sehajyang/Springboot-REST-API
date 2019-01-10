@@ -11,10 +11,9 @@ import java.time.LocalDateTime;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -24,7 +23,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest
+@SpringBootTest
+@AutoConfigureMockMvc
 public class EventControllerTests {
     
     @Autowired
@@ -33,9 +33,6 @@ public class EventControllerTests {
     //mockMvc.content에게 데이터를 json형태로 넘겨주기 위함
     @Autowired
     ObjectMapper objectMapper;
-    
-    @MockBean
-    EventRepository eventRepository;
     
     @Test
     public void createEvent() throws Exception {
@@ -54,10 +51,8 @@ public class EventControllerTests {
                 .location("Seoul, Korea")
                 .free(true)
                 .offline(false)
+                .eventStatus(EventStatus.PUBLISHED)
                 .build();
-        
-        event.setId(10);
-        Mockito.when(eventRepository.save(event)).thenReturn(event);
         
         mockMvc.perform(post("/api/events/")
                     .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -69,7 +64,9 @@ public class EventControllerTests {
                 .andExpect(header().exists(HttpHeaders.LOCATION))
                 .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaTypes.HAL_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("id").value(Matchers.not(100)))
-                .andExpect(jsonPath("free").value(Matchers.not(true)));
+                .andExpect(jsonPath("free").value(Matchers.not(true)))
+                .andExpect(jsonPath("eventStatus").value(EventStatus.DRAFT.name()))
+                ;
     
     }
 
