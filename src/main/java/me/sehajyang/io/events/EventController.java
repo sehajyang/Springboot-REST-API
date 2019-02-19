@@ -29,7 +29,7 @@ public class EventController {
      public ResponseEntity createEvent(@RequestBody EventDto eventDto) {
         Event event = modelMapper.map(eventDto, Event.class);
         Event newEvent = this.eventRepository.save(event);
-          URI createdUri = linkTo(EventController.class).slash(newEvent.getId()).toUri(); 
+          URI createdUri = linkTo(EventController.class).slash(newEvent.getId()).toUri();
            //hateos가 제공, Location URL만들기
            return ResponseEntity.created(createdUri).body(event);
            //201 응답 만듦
