@@ -1,7 +1,7 @@
-# Springboot-REST-API
+# springboot REST API 개발 with TDD
 [springboot 기반 REST API 개발](https://www.inflearn.com/course/spring_rest-api/) 강의를 보며 공부하는 repo
 
-이 강좌에서는 다음의 다양한 스프링 기술을 사용하여 REST API를 개발합니다.
+이 강좌에서는 다음의 다양한 스프링 기술을 사용하여 TDD로 REST API를 개발합니다.
 
 * 스프링 프레임워크
 * 스프링 부트
